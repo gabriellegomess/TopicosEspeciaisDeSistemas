@@ -1,0 +1,86 @@
+1. npm initi (criou o package)
+
+2. npm install typescript (modulo node e cria o ts como dependencia)
+
+3. npx tsc --init (cria as ts.config)
+
+4. no tsconfig muda o "module" = commonjs PARA --> ESNext
+
+5. npm install --save prompt-sync
+
+6. npm i --save-dev @types/node
+
+7. npm install --save prompt-sync-history
+
+- para rodar: npx tsc app.ts  node app
+
+Qual o objetivo da função?
+
+O que a função precisa saber para chegar no objetivo? (parametros)
+
+Tem que dar resposta? -> qual o retorno e o tipo? 
+
+
+let teclado = require("prompt-sync")();
+
+
+let num:number = teclado();
+num = Number(num);
+
+
+ (FUNÇOES)
+export function calcularFatorial(): number{
+}
+
+(APP)
+import { calcularFatorial, calcularExponenciacao, calcularPorcentagem, calcularAreaTriangulo } from './funcoes';
+
+
+let = (local)
+var = consegue usar em qualquer lugar (global)
+const = (pode alterar ela, mutavel)
+
+
+FATORIAL
+
+ for(i = valor; i > 0; i--){
+        fat = fat * i;
+    }
+
+EXPONENTE
+
+ for(i = 1; i <= expoente; i++){
+        res = res * base;
+    }
+
+
+
+` frase ${num}`);   ou    "frase" + num);
+
+
+--- Express
+
+npm init
+
+npm install express --save
+
+const express = require("express"); //trazendo a dependencia pro modulo
+const servidor = express();
+
+
+servidor.get("/", function(req, res){
+	res.send("mensagem etc");
+});
+
+
+O LISTEN É A ÚLTIMA COISA DA APLICAÇÃO NÃO PODE TER NADA EMBAIXO DO LISTEN
+
+servidor.listen(8081, function(){
+});
+
+
+(no terminal crtl c - para de rodar o servidor)
+
+
+
+ 
