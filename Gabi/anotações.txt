@@ -81,6 +81,13 @@ servidor.listen(8081, function(){
 
 (no terminal crtl c - para de rodar o servidor)
 
+===========================
+app.get("/", (req, res) =>{
+    return res.send("Oi");
+}); 
+
+(a "/" serve para mostrar que é a pg principal)
+(criar função sem escrever função)
 
 
  
