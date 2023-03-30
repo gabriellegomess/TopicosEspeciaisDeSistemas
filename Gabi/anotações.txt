@@ -88,6 +88,28 @@ app.get("/", (req, res) =>{
 
 (a "/" serve para mostrar que é a pg principal)
 (criar função sem escrever função)
+=========
+
+app.use(express.json()); //rota com json
 
 
+app.get("/", (req, res) =>{
+    return res.json({
+        nome: "Jose",
+	idade: 21
+    })
+});
+
+atributo e valor separados de outro atributo por virgula 
+e o ultimo valor não precisa de , nem de ;
+
+=====================
+
+npm install nodemon -D
+
+(deixa o servidor funcionando mesmo com alteração)
+(melhor ser instalado só qnd ta desenvolvendo)
  
+no package json no script colocar
+"dev": "nodemon/backend/src/index.js",
+
