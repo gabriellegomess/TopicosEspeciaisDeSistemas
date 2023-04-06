@@ -1,4 +1,4 @@
-const mongoose = requie("mongoose");
+const mongoose = require("mongoose");
 
 const AnotacaoModelSchema = new mongoose.Schema({ //criando um novo conjunto de atributos la no banco de dados
     titulo: String,
@@ -6,6 +6,7 @@ const AnotacaoModelSchema = new mongoose.Schema({ //criando um novo conjunto de 
     prioridade: Boolean
 });
 
-module.exports = mongoose.model("Anotacoes", AnotacoesModelSchema); //vai exportar/implementar numa coleção chamada anotações(la do mongo criada)
+module.exports = mongoose.model("Anotacoes", AnotacaoModelSchema); 
+//vai exportar/implementar numa coleção chamada anotações(la do mongo criada)
 //vai importar o AnotacoesModelSchema que são os atributos e variaveis
 

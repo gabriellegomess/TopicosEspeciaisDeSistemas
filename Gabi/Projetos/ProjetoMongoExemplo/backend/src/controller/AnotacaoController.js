@@ -6,6 +6,16 @@ module.exports = {
         const anotacoesList = await Anotacoes.find(); //processa oq tem no BD antes e dps salva as informações em anotacoesList
         return res.json(anotacoesList); //retorna pro navegador a lista de anotações q foi pega do BD
     },
+
+    async creat(req, res){
+        const {titulo, notas, prioridade} = req.body;
+        const anotacoeCriada = await Anotacoes.create({
+            titulo, 
+            notas, 
+            prioridade
+        });
+        return res.json(anotacoeCriada);
+    }
 }
 
 //get -> read (td q for read vai ser excecutad qnd a requisição for get)
