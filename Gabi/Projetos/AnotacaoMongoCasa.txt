@@ -1,0 +1,1 @@
+mongodb+srv://binhaup:<password>@cluster0.jpst7la.mongodb.net/?retryWrites=true&w=majority
