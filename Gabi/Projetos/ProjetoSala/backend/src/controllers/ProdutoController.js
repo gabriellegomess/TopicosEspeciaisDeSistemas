@@ -42,7 +42,7 @@ module.exports = {
         produto.validade = validade;
         produto.codigo = codigo;
 
-        await anotacao.save();
+        await produto.save();
 
         return res.json(produto);
     }
