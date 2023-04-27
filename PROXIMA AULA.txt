@@ -1,0 +1,17 @@
+baixar o typeScript desde o zero
+baixar o node, os ngc de conexao, alterações no script,
+
+(ver as anotações do "correcoesfuncoesprof"
+
+Fazer um programa q recebe os dados de um cliente
+e uma parte do programa que realiza uma venda
+qnd essa venda for concluida e alguem pesquisar sobre ela
+ela vai mostrar pra quem
+foi vendido, qnd foi vendido a data etc, e os dados do 
+cliente que comprou.
+
+"front"
+
+<!-- salvar no banco de dados -->
+<!-- passar como json os dados como jason e salvar no banco de dados -->
+<!-- baixar o tsconfig -->

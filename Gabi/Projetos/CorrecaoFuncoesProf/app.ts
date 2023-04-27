@@ -16,6 +16,7 @@ do{
             console.log("Informe o valor: ");
             v1 = teclado();
             res = calcularFatorial(Number(v1));
+            //NO CASO NO PROGRAMA O RETURN VAI SER Q FOR SALVO DEPOIS Q O IF DE CRIAR NO BANCO DE DADOS FOR CONCLUIDO
             console.log(`O fatorial do valor informado é ${res}`);
             break;
         case 2:

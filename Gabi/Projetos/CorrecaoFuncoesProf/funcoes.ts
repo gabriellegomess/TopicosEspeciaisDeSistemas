@@ -4,6 +4,7 @@ export function calcularFatorial(valor: number): number{
     for(i = valor; i > 0; i--){
         fat = fat * i;
     }
+    //O RETURN SERIA "O CLIENTE FOI SALVO POR EX"
     return fat;
 }
 

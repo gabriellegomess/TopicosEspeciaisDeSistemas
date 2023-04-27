@@ -7,10 +7,10 @@ module.exports = {
     },
 
     async create(req, res){
-        const {titulo, descricao, validade, codigo} = req.body;
+        const {titulo, descricao, validade, codigoProduto} = req.body;
         console.log(req.body);
 
-        if(!titulo || !descricao || !validade || !codigo){
+        if(!titulo || !descricao || !validade || !codigoProduto){
             return res.status(400).json({error: "É necessário preencher todos os campos!(titulo, descricao, validade, codigo)"}); 
         }
 
@@ -18,7 +18,7 @@ module.exports = {
             titulo,
             descricao,
             validade,
-            codigo
+            codigoProduto
         });
         return res.json(produtoCriado);
     },
@@ -34,13 +34,13 @@ module.exports = {
 
     async update(req, res){
         const {id} = req.params;
-        const {titulo, descricao, validade, codigo} = req.body;
+        const {titulo, descricao, validade, codigoProduto} = req.body;
         const produto = await Produtos.findOne({_id: id});
 
         produto.titulo = titulo;
         produto.descricao = descricao;
         produto.validade = validade;
-        produto.codigo = codigo;
+        produto.codigoProduto = codigoProduto;
 
         await produto.save();
 
