@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VENDAS</title>
+</head>
+<body>
+
+    <h1>Realizar venda</h1>
+    <form>
+      <label for="cliente">Cliente:</label>
+      <select id="cliente" name="cliente"></select><br>
+      <label for="valor">Valor:</label>
+      <input type="number" id="valor" name="valor"><br>
+      <button type="button" onclick="realizarVenda()">Realizar venda</button>
+    </form>
+    <h2>Consultar vendas</h2>
+    <button type="button" onclick="consultarVendas()">Consultar vendas</button>
+    <ul id="vendas"></ul>
+    <script>
+      async function realizarVenda() {
+        const cliente = document.getElementById('cliente').value;
+        const valor = document.getElementById('valor').value;
+        const response = await fetch('http://localhost:3000/vendas', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ cliente, valor }),
+        });
+        const venda = await response.json();
+        alert(`Venda realizada com sucesso`);
+        document.getElementById('cliente').value = '';
+        document.getElementById('valor').value = '';
+      }
+
+      async function consultarVendas() {
+        const response = await fetch('http://localhost:3000/vendas');
+        const vendas = await response.json();
+        const ul = document.getElementById('vendas');
+        ul.innerHTML = '';
+        vendas.forEach(venda => {
+          const li = document.createElement('li');
+          li.innerHTML = `${venda.cliente.nome} - ${venda.data} - R$${venda.valor}`;
+          ul.appendChild(li);
+        });
+      }
+
+      async function carregarClientes() {
+        const response = await fetch('http://localhost:3000/clientes');
+        const clientes = await response.json();
+        const select = document.getElementById('cliente');
+        clientes.forEach(cliente => {
+          const option = document.createElement('option');
+          option.value = cliente._id;
+          option.innerText = cliente.nome;
+          select.appendChild(option);
+        });
+      }
+
+      carregarClientes();
+    </script>
+    
+</body>
+</html>
