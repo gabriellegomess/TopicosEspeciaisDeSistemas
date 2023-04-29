@@ -23,7 +23,7 @@ const express = require("express");
 const router = express.Router();
 const clienteController = require("../controllers/clienteController");
 
-router.post("/clientes", clienteController.cadastrarCliente);
+router.post("/clientes/cadastro", clienteController.cadastrarCliente);
 
 module.exports = router;
 
