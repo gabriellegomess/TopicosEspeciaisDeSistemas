@@ -15,3 +15,42 @@ cliente que comprou.
 <!-- salvar no banco de dados -->
 <!-- passar como json os dados como jason e salvar no banco de dados -->
 <!-- baixar o tsconfig -->
+
+<!-- salvar no banco de dados -->
+<!-- passar como json os dados como jason e salvar no banco de dados -->
+<!-- baixar o tsconfig 
+
+// aqui vai ficar os comandos do terminal  (oq vc deseja fazer? cadastrar, salvar, listar, deletar, etc)
+//opções q tem 
+//na pg de funções q vai salvar os ngc no banco, aq só vai chamar-->
+
+
+partes do codigo para explicar
+
+const cors = require('cors');
+
+const app = express();
+
+app.use(cors());
+
+
+cliente model antigo
+
+//const mongoose = require('mongoose');
+
+//const cpf = document.getElementById("cpf").value;
+const clienteSchema = new mongoose.Schema({
+  nome: { type: String, required: true },
+  cpf: { type: String, required: true },
+  telefone: { type: String, required: true },
+  email: { type: String, required: true },
+  endereco: { type: String, required: true }
+}); 
+
+const Cliente = mongoose.model('Cliente', clienteSchema);
+
+module.exports = Cliente; 
+
+
+
+
