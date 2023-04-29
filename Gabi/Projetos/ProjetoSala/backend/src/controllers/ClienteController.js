@@ -8,20 +8,21 @@ const Cliente = require("../models/ClienteModel");
         return res.json(clientesList);
     }, */
 
-    exports.cadastrarCliente = (req, res) => {
-        const cliente = new Cliente({
-          nome: req.body.nome,
-          cpf: req.body.cpf,
-          telefone: req.body.telefone,
-          email: req.body.email,
-          endereco: req.body.endereco
-        });
-      
-        cliente.save()
-          .then(() => res.send('Cliente cadastrado com sucesso!'))
-          .catch((err) => res.status(500).send(err));
-    };
+    const Cliente = require("../models/ClienteModel");
 
+    exports.cadastrarCliente = (req, res) => {
+      const cliente = new Cliente({
+        nome: req.body.nome,
+        cpf: req.body.cpf,
+        telefone: req.body.telefone,
+        email: req.body.email,
+        endereco: req.body.endereco,
+      });
+    
+      cliente.save()
+        .then(() => res.send('Cliente cadastrado com sucesso!'))
+        .catch((err) => res.status(500).send(err));
+    };
 
   /*  async create(req, res){
         const {nomeCliente, cpf, idade, enderecoCliente} = req.body;

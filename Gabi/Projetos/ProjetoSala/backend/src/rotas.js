@@ -1,4 +1,4 @@
-const express = require("express");
+/*const express = require("express");
 const rotas = express.Router();
 const VendaController = require("./controllers/VendaController");
 const ClienteController = require("./controllers/ClienteController");
@@ -18,5 +18,14 @@ rotas.get('/clientes', ClienteController.read);
 rotas.post('/clientes/cadastro', ClienteController.create);
 rotas.delete('/clientes/:id', ClienteController.delete);
 rotas.post('/clientes/:id', ClienteController.update);
+*/
+const express = require("express");
+const router = express.Router();
+const clienteController = require("../controllers/clienteController");
 
-module.exports = rotas;
+router.post("/clientes", clienteController.cadastrarCliente);
+
+module.exports = router;
+
+
+//module.exports = rotas;
