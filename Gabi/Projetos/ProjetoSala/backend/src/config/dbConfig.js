@@ -8,7 +8,7 @@ const conexao = mongoose.connect(dbConfig, {
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const ClienteController = require('./controllers/clienteController');
+const ClienteController = require('./controllers/ClienteController');
 
 
 module.exports = conexao;

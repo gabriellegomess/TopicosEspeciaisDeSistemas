@@ -21,9 +21,9 @@ rotas.post('/clientes/:id', ClienteController.update);
 */
 const express = require("express");
 const router = express.Router();
-const clienteController = require("../controllers/clienteController");
+const clienteController = require("../controllers/ClienteController");
 
-router.post("/clientes/cadastro", clienteController.cadastrarCliente);
+router.post("/clientes/cadastro", ClienteController.cadastrarCliente);
 
 module.exports = router;
 
