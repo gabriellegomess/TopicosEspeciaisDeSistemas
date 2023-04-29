@@ -7,53 +7,63 @@
     <title>CADASTRO DE CLIENTES</title>
 </head>
 <body>
+    <h1>Cadastro de Clientes!</h1>
+	<form id="form-cliente">
+		<label for="nome">Nome:</label>
+		<input type="text" id="nome" name="nome"><br>
 
-    <h1> Cadastro de Clientes !</h1>
+		<label for="email">E-mail:</label>
+		<input type="email" id="email" name="email"><br>
 
-    <form>
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome"><br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email"><br>
-        <label for="telefone">Telefone:</label>
-        <input type  <form>
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome"><br>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email"><br>
-            <label for="telefone">Telefone:</label>
-            <input type "text" id="telefone" name="telefone"><br>
-            <button type="button" onclick="cadastrarCliente()">Cadastrar</button>
-    </form>
-        <script>
+		<label for="telefone">Telefone:</label>
+		<input type="text" id="telefone" name="telefone"><br>
 
-        async function cadastrarCliente() {
+		<button type="submit">Cadastrar</button>
+	</form>
 
-             //adc o cpf e endereço
-        const nome = document.getElementById('nome').value;
+	<div id="clientes-cadastrados"></div>
 
-        const email = document.getElementById('email').value;
+    <script>
+		// código JavaScript para controlar a lógica da página
 
-        const telefone = document.getElementById('telefone').value;
-            //alterar a localhost
-        const response = await fetch('http://localhost:3000/clientes', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ nome, email, telefone }),
-        });
+        const form = document.getElementById('form-cliente');
+        const clientesCadastrados = document.getElementById('clientes-cadastrados');
 
-        const cliente = await response.json();
+form.addEventListener('submit', (event) => {
+	event.preventDefault(); // evita o envio padrão do formulário
 
-        alert('Cliente ${cliente.nome} cadastrado com sucesso');
+	// obter os dados do formulário
+	const nome = document.getElementById('nome').value;
+	const email = document.getElementById('email').value;
+	const telefone = document.getElementById('telefone').value;
 
-        document.getElementById('nome').value = '';
-        document.getElementById('email').value = '';
-        document.getElementById('telefone').value = '';
-        //adc o cpf e endereço
+	// criar um objeto com os dados do cliente
+	const cliente = { nome, email, telefone };
 
-        
-}
-</script>
+	// enviar os dados para o backend via requisição HTTP POST
+	fetch('/api/clientes', {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify(cliente)
+	})
+	.then(response => response.json())
+	.then(data => {
+		// exibir os dados do cliente cadastrado
+		clientesCadastrados.innerHTML = `
+			<p>Cliente cadastrado:</p>
+			<ul>
+				<li>Nome: ${data.nome}</li>
+				<li>E-mail: ${data.email}</li>
+				<li>Telefone: ${data.telefone}</li>
+			</ul>
+		`;
+	})
+	.catch(error => {
+		console.error('Erro ao cadastrar cliente:', error);
+	});
+});
+
+	</script>
     
 </body>
 </html>

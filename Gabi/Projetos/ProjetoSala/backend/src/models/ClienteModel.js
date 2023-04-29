@@ -1,11 +1,15 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+
 //const cpf = document.getElementById("cpf").value;
 
-const ClienteModelSchema = new mongoose.Schema({
-    nomeCliente: String, 
-    cpf: String, 
-    idade: String, 
-    enderecoCliente: String
+const clienteSchema = new mongoose.Schema({
+  nome: { type: String, required: true },
+  cpf: { type: String, required: true },
+  telefone: { type: String, required: true },
+  email: { type: String, required: true },
+  endereco: { type: String, required: true }
 });
 
-module.exports = mongoose.model("Clientes", ClienteModelSchema);
+const Cliente = mongoose.model('Cliente', clienteSchema);
+
+module.exports = Cliente;

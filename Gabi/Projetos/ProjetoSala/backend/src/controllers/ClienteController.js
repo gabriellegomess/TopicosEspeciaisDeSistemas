@@ -1,12 +1,29 @@
 const Clientes = require("../models/ClienteModel");
+const Cliente = require("../models/ClienteModel");
 
-module.exports = {
-    async read(req, res){
+
+//module.exports = {
+   /* async read(req, res){
         const clientesList = await Clientes.find();
         return res.json(clientesList);
-    },
+    }, */
 
-    async create(req, res){
+    exports.cadastrarCliente = (req, res) => {
+        const cliente = new Cliente({
+          nome: req.body.nome,
+          cpf: req.body.cpf,
+          telefone: req.body.telefone,
+          email: req.body.email,
+          endereco: req.body.endereco
+        });
+      
+        cliente.save()
+          .then(() => res.send('Cliente cadastrado com sucesso!'))
+          .catch((err) => res.status(500).send(err));
+    };
+
+
+  /*  async create(req, res){
         const {nomeCliente, cpf, idade, enderecoCliente} = req.body;
         console.log(req.body);
 
@@ -21,8 +38,8 @@ module.exports = {
             enderecoCliente
         });
         return res.json(clienteCriado);
-    },
-
+    }
+*//*
     async delete(req, res){
         const {id} = req.params;
         const clienteDeletado = await Clientes.findOneAndDelete({_id : id});
@@ -46,5 +63,6 @@ module.exports = {
 
         return res.json(cliente);
     }
+    */
 
-}
+//}

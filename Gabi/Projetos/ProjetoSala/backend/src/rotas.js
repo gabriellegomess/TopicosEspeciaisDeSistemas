@@ -15,7 +15,7 @@ rotas.delete('/vendas/:id', VendaController.delete);
 rotas.post('/vendas/:id', VendaController.update);
 
 rotas.get('/clientes', ClienteController.read);
-rotas.post('/clientes', ClienteController.create);
+rotas.post('/clientes/cadastro', ClienteController.create);
 rotas.delete('/clientes/:id', ClienteController.delete);
 rotas.post('/clientes/:id', ClienteController.update);
 
