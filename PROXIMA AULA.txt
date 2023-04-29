@@ -51,6 +51,8 @@ const Cliente = mongoose.model('Cliente', clienteSchema);
 
 module.exports = Cliente; 
 
+../backend/src/rotas/clientes/cadastro
+
 
 
 
