@@ -1,30 +1,14 @@
-const Clientes = require("../models/ClienteModel");
 const Cliente = require("../models/ClienteModel");
 
-
-//module.exports = {
-   /* async read(req, res){
+/*
+module.exports = {
+    async read(req, res){
         const clientesList = await Clientes.find();
         return res.json(clientesList);
-    }, */
+    }, 
 
-    const Cliente = require("../models/ClienteModel");
 
-    exports.cadastrarCliente = (req, res) => {
-      const cliente = new Cliente({
-        nome: req.body.nome,
-        cpf: req.body.cpf,
-        telefone: req.body.telefone,
-        email: req.body.email,
-        endereco: req.body.endereco,
-      });
-    
-      cliente.save()
-        .then(() => res.send('Cliente cadastrado com sucesso!'))
-        .catch((err) => res.status(500).send(err));
-    };
-
-  /*  async create(req, res){
+    async create(req, res){
         const {nomeCliente, cpf, idade, enderecoCliente} = req.body;
         console.log(req.body);
 
@@ -39,8 +23,8 @@ const Cliente = require("../models/ClienteModel");
             enderecoCliente
         });
         return res.json(clienteCriado);
-    }
-*//*
+    },
+
     async delete(req, res){
         const {id} = req.params;
         const clienteDeletado = await Clientes.findOneAndDelete({_id : id});
@@ -64,6 +48,24 @@ const Cliente = require("../models/ClienteModel");
 
         return res.json(cliente);
     }
-    */
 
-//}
+} */
+
+exports.salvarCliente = (req, res) => {
+    const cliente = new Cliente({
+        nome: req.body.nome,
+        cpf: req.body.cpf,
+        telefone: req.body.telefone,
+        email: req.body.email,
+        endereco: req.body.endereco
+      });
+    
+      cliente.save()
+        .then(() => {
+          res.status(201).send('Cliente salvo com sucesso!');
+        })
+        .catch((err) => {
+          console.error(err);
+          res.status(500).send('Erro ao salvar o cliente.');
+        });
+}

@@ -19,9 +19,10 @@ rotas.post('/clientes/cadastro', ClienteController.create);
 rotas.delete('/clientes/:id', ClienteController.delete);
 rotas.post('/clientes/:id', ClienteController.update);
 */
+
 const express = require("express");
 const router = express.Router();
-const clienteController = require("../controllers/ClienteController");
+const ClienteController = require("../controllers/ClienteController");
 
 router.post("/clientes/cadastro", ClienteController.cadastrarCliente);
 
