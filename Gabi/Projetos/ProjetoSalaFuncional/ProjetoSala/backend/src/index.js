@@ -1,16 +1,15 @@
 const express = require("express");
 const app = express();
 const rotas = require("./rotas");
-const ClienteController = require('./backend/src/controllers/ClienteController');
+const clienteController = require('./backend/src/controllers/ClienteController');
 
 
-app.post('/cliente', ClienteController.salvarCliente);
+app.post('/cliente', clienteController.salvarCliente);
 
 
 app.listen(3000, () => {
   console.log('Servidor rodando na porta 3000!');
 });
-
 
 
 
